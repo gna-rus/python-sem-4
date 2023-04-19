@@ -15,13 +15,15 @@
 
 from random import randint
 
+
 def fun_for_fill(num):
     """
-    Функция генерирующая число ягод в каждом отдельном кусте
+    Функция генерирующая число ягод в каждом отдельном кусте (на каждома кусте от 10 до 30 ягод)
     :param num: кол-во кустов
     :return: список с кол-вом ягод в каждом отдельном кусте
     """
-    return [randint(10,30) for _ in range(num)]
+    return [randint(10, 30) for _ in range(num)]
+
 
 try:
     num = int(input("Введите количество кустов ягод: "))
@@ -30,10 +32,11 @@ try:
     save_position = 0
     sum_position = 0
     # Цикл перебора всех кустов и начинается он с 1 индекса и заканчивается цикл предпоследним индексом
-    for i in range(1, len(list1)-1):
-        if (list1[i-1] + list1[i] + list1[i+1]) > sum_position:
+    for i in range(1, len(list1) - 1):
+        if (list1[i - 1] + list1[i] + list1[i + 1]) > sum_position:
             save_position = i
-            sum_position = list1[i-1] + list1[i] + list1[i+1]
+            sum_position = list1[i - 1] + list1[i] + list1[i + 1]
+            print(f"  {i} - {sum_position}")
     print(f"Максимальное количество ягод которое возможно собрать {sum_position} \n"
           f"на позиции куста {save_position}±1")
 
